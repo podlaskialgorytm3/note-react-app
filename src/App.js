@@ -1,8 +1,9 @@
-import React from "react";
-//import { ReactDOM } from "react";
+import React from 'react';
 
 const App = () => (
-    <h1>SIEMANO</h1>
-)
+    <div>
+        <h1>Hello World</h1>
+    </div>
+);
 
 export default App;
