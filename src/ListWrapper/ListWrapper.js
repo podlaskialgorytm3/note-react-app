@@ -10,12 +10,7 @@ import './ListWrapper.css'
 const ListWrapper = () => (
     <ul>
         {twitterAccounts.map((account) => (
-            <ListItem
-                image={account.image}
-                name={account.name}
-                description={account.description}
-                twitterLink={account.twitterLink}
-            />
+            <ListItem key={account.name} {...account} />
         ))}
     </ul>
 )
