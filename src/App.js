@@ -1,5 +1,5 @@
 import React from 'react';
-import ListWrapper from './components/ListWrapper/ListWrapper';
+import ListWrapper from './components/List/List';
 import './index.css';
 import Form from './components/Form/Form';
 
