@@ -36,7 +36,7 @@ class App extends React.Component {
     
     addItem = (e) => {
         e.preventDefault();
-        
+        console.log(this.state)
         const newItem = {
             name: e.target[0].value,
             twitterLink: e.target[1].value,

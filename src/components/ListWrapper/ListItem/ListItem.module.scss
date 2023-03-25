@@ -25,7 +25,11 @@
       height: 150px;
       border-radius: 50%;
   }
-  
+  .imageNone{
+    @extend .image;
+    //background-color: lightblue;
+    background-image: url('https://unsplash.it/200/200');
+  }
   .name {
       margin: 0;
       color: #1E58FF;
