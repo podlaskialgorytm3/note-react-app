@@ -7,7 +7,7 @@ import './ListWrapper.css'
 
 
 const ListWrapper = (props) => (
-    <ul>
+    <ul className="listWrapper__wrapper">
         {props.items.map((account) => (
             <ListItem key={account.name} {...account} />
         ))}
