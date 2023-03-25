@@ -14,7 +14,7 @@ const ListItem = ({
         <div>
             <h2 className="listItem__name">{name || "The simple name of famous person"}</h2>
             <p className="listItem__description">{description || "The simple text about description"}</p>
-            <a className="listItem__button" href={twitterLink || "Twitterlink to his/her profile"}>Visit page</a>
+            <a targer="_blank" rel="noreferrer" className="listItem__button" href={twitterLink || "Twitterlink to his/her profile"}>Visit page</a>
         </div>
     </li>
 )
