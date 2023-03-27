@@ -5,11 +5,11 @@ import logo from '../../assets/images/logo.svg'
 import Button from '../Button/Button'
 
 import styles from './Header.moudle.scss'
-const Header = () => (
+const Header = ({openModalFc}) => (
     <header className={styles.wrapper}>
         <img src={logo} alt="FavNote"/>
         <Navigation />
-        <Button secondary>Add new item</Button>
+        <Button secondary onClick={openModalFc}>Add new item</Button>
     </header>
 )
 

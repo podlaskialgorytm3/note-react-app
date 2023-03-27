@@ -44,7 +44,11 @@ class Root extends React.Component {
       isModalOpen: true
     })
   }
-
+  closeModal = () => {
+    this.setState({
+      isModalOpen: false
+    })
+  }
 
   render() {
     const {isModalOpen} = this.state
@@ -58,7 +62,7 @@ class Root extends React.Component {
             <Route path="/articles" Component={ArticlesView} />
             <Route path="/notes" Component={NotesView} />
         </Routes>
-        {isModalOpen && <Modal />}
+        {isModalOpen && <Modal closeModalFc={this.closeModal} />}
         </>
       </Router>
     );

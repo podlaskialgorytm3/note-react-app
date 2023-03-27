@@ -2,8 +2,8 @@ import React from "react";
 import styles from './Button.module.scss'
 
 
-const Button = ({children, href,secondary}) => {
-    const buttonClass = secondary ? styles.secondary : styles.button 
+const Button = ({children, href, secondary, closeButton, ...props}) => {
+    const buttonClass = secondary ? styles.secondary : closeButton ? styles.closeButton : styles.button
     return(
         href ? (
             <a
@@ -13,7 +13,7 @@ const Button = ({children, href,secondary}) => {
                 rel="noopener noreferrer"
             >{children}</a>
         ) : (
-            <button className={buttonClass}>{children}</button>
+            <button className={buttonClass} {...props}>{children}</button>
         )  
     )
 }
