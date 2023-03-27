@@ -4,7 +4,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import TwittersView from '../TwittersView/TwittersView';
 import ArticlesView from '../ArticlesView/ArticlesView';
 import NotesView from '../NotesView/NotesView';
-import Navigation from '../../components/Header/Navigation';
+//import Navigation from '../../components/Header/Navigation';
+import Header from "../../components/Header/Header";
+import Modal from '../../components/Modal/Modal'
 
 const initialStateItems = [
   {
@@ -18,6 +20,7 @@ const initialStateItems = [
 class Root extends React.Component {
   state = {
     items: [...initialStateItems],
+    isModalOpen: false
   };
 
   addItem = e => {
@@ -36,18 +39,26 @@ class Root extends React.Component {
 
     e.target.reset();
   };
+  openModal = () => {
+    this.setState({
+      isModalOpen: true
+    })
+  }
+
 
   render() {
+    const {isModalOpen} = this.state
     return (
       <Router>
         <>
-        <Navigation />
+        <Header openModalFc={this.openModal}/>
           <h1>hello world</h1>
         <Routes>
             <Route path="/" Component={TwittersView} />
             <Route path="/articles" Component={ArticlesView} />
             <Route path="/notes" Component={NotesView} />
         </Routes>
+        {isModalOpen && <Modal />}
         </>
       </Router>
     );
