@@ -21,9 +21,9 @@ class Root extends React.Component {
   addItem = (e,newItem) => {
     e.preventDefault();
     this.setState(prevState => ({
-      [newItem.type] : [...prevState[newItem.type],newItem]
+      [newItem.type] : [...prevState[newItem.type],newItem],
     }))
-    console.log(this.state)
+
     this.closeModal()
   };
   openModal = () => {
@@ -47,7 +47,6 @@ class Root extends React.Component {
       <Router>
         <AppContext.Provider value={contextElements}>
         <Header openModalFc={this.openModal}/>
-          <h1>hello world</h1>
         <Routes>
             <Route path="/" Component={TwittersView} />
             <Route path="/articles" Component={ArticlesView} />
