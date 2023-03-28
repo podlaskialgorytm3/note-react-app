@@ -7,37 +7,22 @@ import NotesView from '../NotesView/NotesView';
 //import Navigation from '../../components/Header/Navigation';
 import Header from "../../components/Header/Header";
 import Modal from '../../components/Modal/Modal'
+import AppContext from "../../context";
 
-const initialStateItems = [
-  {
-    image: "https://pbs.twimg.com/profile_images/906557353549598720/oapgW_Fp.jpg",
-    name: "Dan Abramov",
-    description: "React core member",
-    twitterLink: "https://twitter.com/dan_abramov"
-  }
-];
 
 class Root extends React.Component {
   state = {
-    items: [...initialStateItems],
+    items: [{
+      twitters: [],
+      articles: [],
+      notes: []
+    }],
     isModalOpen: false
   };
 
   addItem = e => {
     e.preventDefault();
-
-    const newItem = {
-      name: e.target[0].value,
-      twitterLink: e.target[1].value,
-      image: e.target[2].value,
-      description: e.target[3].value
-    };
-
-    this.setState(prevState => ({
-      items: [...prevState.items, newItem]
-    }));
-
-    e.target.reset();
+    
   };
   openModal = () => {
     this.setState({
@@ -52,9 +37,13 @@ class Root extends React.Component {
 
   render() {
     const {isModalOpen} = this.state
+    const contextElements = {
+      ...this.state,
+      addItem: this.addItem
+    }
     return (
       <Router>
-        <>
+        <AppContext.Provider value={contextElements}>
         <Header openModalFc={this.openModal}/>
           <h1>hello world</h1>
         <Routes>
@@ -63,7 +52,7 @@ class Root extends React.Component {
             <Route path="/notes" Component={NotesView} />
         </Routes>
         {isModalOpen && <Modal closeModalFc={this.closeModal} />}
-        </>
+        </AppContext.Provider>
       </Router>
     );
   }
