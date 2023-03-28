@@ -23,6 +23,7 @@ class Root extends React.Component {
     this.setState(prevState => ({
       [newItem.type] : [...prevState[newItem.type],newItem]
     }))
+    console.log(this.state)
     this.closeModal()
   };
   openModal = () => {
