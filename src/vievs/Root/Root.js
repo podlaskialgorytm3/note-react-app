@@ -12,17 +12,18 @@ import AppContext from "../../context";
 
 class Root extends React.Component {
   state = {
-    items: [{
-      twitters: [],
-      articles: [],
-      notes: []
-    }],
-    isModalOpen: false
+      twitter: [],
+      article: [],
+      note: [],
+      isModalOpen: false
   };
 
-  addItem = e => {
+  addItem = (e,newItem) => {
     e.preventDefault();
-    
+    this.setState(prevState => ({
+      [newItem.type] : [...prevState[newItem.type],newItem]
+    }))
+    this.closeModal()
   };
   openModal = () => {
     this.setState({
