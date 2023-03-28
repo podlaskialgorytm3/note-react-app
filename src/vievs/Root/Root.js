@@ -46,13 +46,14 @@ class Root extends React.Component {
     return (
       <Router>
         <AppContext.Provider value={contextElements}>
+        {isModalOpen && <Modal closeModalFc={this.closeModal} />}
         <Header openModalFc={this.openModal}/>
         <Routes>
             <Route path="/" Component={TwittersView} />
             <Route path="/articles" Component={ArticlesView} />
             <Route path="/notes" Component={NotesView} />
         </Routes>
-        {isModalOpen && <Modal closeModalFc={this.closeModal} />}
+        
         </AppContext.Provider>
       </Router>
     );
